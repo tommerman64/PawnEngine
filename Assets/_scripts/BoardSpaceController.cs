@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TileController : MonoBehaviour
+public class BoardSpaceController : MonoBehaviour
 {
     private Color originalColor;
     public Color highlightColor = Color.yellow;
@@ -25,7 +25,7 @@ public class TileController : MonoBehaviour
 
     void OnMouseDown()
     {
-        // TODO: Implement tile click logic
-        Debug.Log("Tile clicked!");
+        // TODO: Implement board space click logic
+        Debug.Log("Board space clicked!");
     }
 }
