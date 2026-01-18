@@ -84,11 +84,11 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
             currentPlayer.SelectPreviousTile();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
         {
             currentPlayer.SelectNextTile();
         }
