@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
-[RequireComponent(typeof(Collider))]
+// [RequireComponent(typeof(Collider2D))]
 public class BoardSpaceController : MonoBehaviour
 {
     private Color originalColor;
