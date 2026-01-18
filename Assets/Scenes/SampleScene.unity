@@ -153,8 +153,8 @@ MonoBehaviour:
   boardHeight: 6
   boardSpacePrefab: {fileID: 6870651940161375049, guid: 7cfbfcdb741ccb14a9f5975816a38e38, type: 3}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  P1Color: {r: 1, g: 0.31132066, b: 0.31132066, a: 0}
-  P2Color: {r: 0.2780348, g: 0.64591104, b: 0.8930817, a: 0}
+  P1Color: {r: 1, g: 0.31132066, b: 0.31132066, a: 1}
+  P2Color: {r: 0.2780348, g: 0.64591104, b: 0.8930817, a: 1}
 --- !u!4 &350408030
 Transform:
   m_ObjectHideFlags: 0
