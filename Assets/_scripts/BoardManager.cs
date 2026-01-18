@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
-
     private Board board;
+    private BoardSpaceController currentlyHighlighted;
 
     public int boardWidth;
     public int boardHeight;
     public GameObject boardSpacePrefab;
+    public Color highlightColor = Color.yellow;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         this.board = new Board(width: boardWidth, height: boardHeight);
@@ -23,9 +23,40 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            BoardSpaceController hitBoardSpace = hit.collider.GetComponent<BoardSpaceController>();
+            if (hitBoardSpace != null)
+            {
+                if (currentlyHighlighted != hitBoardSpace)
+                {
+                    if (currentlyHighlighted != null)
+                    {
+                        currentlyHighlighted.SetHighlight(false, highlightColor);
+                    }
+                    currentlyHighlighted = hitBoardSpace;
+                    currentlyHighlighted.SetHighlight(true, highlightColor);
+                }
+            }
+            else
+            {
+                if (currentlyHighlighted != null)
+                {
+                    currentlyHighlighted.SetHighlight(false, highlightColor);
+                    currentlyHighlighted = null;
+                }
+            }
+        }
+        else
+        {
+            if (currentlyHighlighted != null)
+            {
+                currentlyHighlighted.SetHighlight(false, highlightColor);
+                currentlyHighlighted = null;
+            }
+        }
     }
 }

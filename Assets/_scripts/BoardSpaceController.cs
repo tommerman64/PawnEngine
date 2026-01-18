@@ -5,8 +5,6 @@ using UnityEngine;
 public class BoardSpaceController : MonoBehaviour
 {
     private Color originalColor;
-    public Color highlightColor = Color.yellow;
-
     private Renderer rend;
 
     void Start()
@@ -15,14 +13,9 @@ public class BoardSpaceController : MonoBehaviour
         originalColor = rend.material.color;
     }
 
-    void OnMouseEnter()
+    public void SetHighlight(bool isHighlighted, Color highlightColor)
     {
-        rend.material.color = highlightColor;
-    }
-
-    void OnMouseExit()
-    {
-        rend.material.color = originalColor;
+        rend.material.color = isHighlighted ? highlightColor : originalColor;
     }
 
     void OnMouseDown()
