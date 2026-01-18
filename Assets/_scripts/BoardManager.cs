@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BoardManager : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class BoardManager : MonoBehaviour
 
     void Update()
     {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         int x = Mathf.RoundToInt(mouseWorldPos.x);
         int y = Mathf.RoundToInt(mouseWorldPos.y);
 
