@@ -6,7 +6,7 @@ public class Board
 
     public class BoardSpace
     {
-        Tile PlacedTile;
+        public Tile PlacedTile;
     }
 
     public BoardSpace[][] boardSpaces;
@@ -25,6 +25,27 @@ public class Board
             }
         }
         this.pawns = new List<Pawn>();
+    }
+
+    public void PlaceTile(int x, int y, TileDefinition tileDefinition, int playerIndex)
+    {
+        if (x >= 0 && x < boardSpaces.Length && y >= 0 && y < boardSpaces[0].Length)
+        {
+            if (!IsOccupied(x, y))
+            {
+                Tile newTile = new Tile(tileDefinition, playerIndex);
+                boardSpaces[x][y].PlacedTile = newTile;
+            }
+        }
+    }
+
+    public bool IsOccupied(int x, int y)
+    {
+        if (x >= 0 && x < boardSpaces.Length && y >= 0 && y < boardSpaces[0].Length)
+        {
+            return boardSpaces[x][y].PlacedTile != null;
+        }
+        return false;
     }
 
     public void AdvancePawns()
