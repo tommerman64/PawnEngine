@@ -11,6 +11,8 @@ public class BoardManager : MonoBehaviour
     public int boardHeight;
     public GameObject boardSpacePrefab;
     public Color highlightColor = Color.yellow;
+    public Color P1Color;
+    public Color P2Color;
 
     void Start()
     {
@@ -55,6 +57,40 @@ public class BoardManager : MonoBehaviour
             }
 
             currentlyHighlighted = newHighlighted;
+        }
+
+        Player currentPlayer = GameManager.Instance.GetCurrentPlayer();
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            if (currentlyHighlighted != null)
+            {
+                TileDefinition selectedTile = currentPlayer.GetSelectedTile();
+                if (selectedTile != null && currentPlayer.CanAfford(selectedTile) && !board.IsOccupied(x,y))
+                {
+                    currentPlayer.SpendResources(selectedTile.Cost);
+                    board.PlaceTile(x, y, selectedTile, GameManager.Instance.currentPlayerIndex);
+
+                    Color placedColor = GameManager.Instance.currentPlayerIndex == 0 ? P1Color : P2Color;
+                    boardSpaceControllers[x][y].SetPlaced(placedColor);
+                }
+                else
+                {
+                    if (selectedTile != null && !currentPlayer.CanAfford(selectedTile))
+                    {
+                        Debug.Log("Not enough resources!");
+                    }
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            currentPlayer.SelectPreviousTile();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            currentPlayer.SelectNextTile();
         }
     }
 }
