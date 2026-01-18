@@ -5,5 +5,7 @@ public class TileDefinition : ScriptableObject
 {
     public int Cost;
     public int HP;
+
+    public Sprite TileIcon;
     
 }
