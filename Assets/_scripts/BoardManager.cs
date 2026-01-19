@@ -73,6 +73,7 @@ public class BoardManager : MonoBehaviour
 
                     Color placedColor = GameManager.Instance.currentPlayerIndex == 0 ? P1Color : P2Color;
                     boardSpaceControllers[x][y].SetPlaced(placedColor);
+                    boardSpaceControllers[x][y].SetTileIcon(selectedTile.TileIcon);
                 }
                 else
                 {

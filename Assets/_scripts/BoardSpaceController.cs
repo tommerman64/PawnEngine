@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class BoardSpaceController : MonoBehaviour
 {
+    public SpriteRenderer tileIconRenderer;
+
     private Color originalColor;
     private Renderer rend;
     private bool isPlaced = false;
@@ -25,6 +27,11 @@ public class BoardSpaceController : MonoBehaviour
     {
         isPlaced = true;
         rend.material.color = placedColor;
+    }
+
+    public void SetTileIcon(Sprite icon)
+    {
+        tileIconRenderer.sprite = icon;
     }
 
     void OnMouseDown()

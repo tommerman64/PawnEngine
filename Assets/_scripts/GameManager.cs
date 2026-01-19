@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         players = new Player[2];
-        players[0] = new Player(10, new List<TileDefinition> { availableTiles[0], availableTiles[1] });
-        players[1] = new Player(10, new List<TileDefinition> { availableTiles[0], availableTiles[1] });
+        players[0] = new Player(3, new List<TileDefinition> { availableTiles[0], availableTiles[1] });
+        players[1] = new Player(3, new List<TileDefinition> { availableTiles[0], availableTiles[1] });
         currentPlayerIndex = 0;
     }
 

@@ -16,7 +16,7 @@ public class Player
 
     public void StartTurn()
     {
-        // Maybe add some logic here later for turn start effects
+        currentResources = 3;
     }
 
     public TileDefinition GetSelectedTile()
