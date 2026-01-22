@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class SelectedTileUI : MonoBehaviour
 {
-    public Image tileIcon;
-    public Text costText;
-    public Text hpText;
+    public SpriteRenderer tileIcon;
+    public TextMeshProUGUI costText;
+    public TextMeshProUGUI hpText;
 
     void Update()
     {
