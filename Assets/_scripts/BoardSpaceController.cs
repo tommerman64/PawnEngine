@@ -13,6 +13,7 @@ public class BoardSpaceController : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
         originalColor = rend.material.color;
+        tileIconRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void SetHighlight(bool isHighlighted, Color highlightColor)
